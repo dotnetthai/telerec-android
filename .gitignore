@@ -1,0 +1,16 @@
+.DS_Store
+build/
+bin/
+*.pem
+*.der
+xcuserdata/
+DerivedData/
+*.xcuserstate
+
+.gradle/
+local.properties
+*.iml
+.idea/
+.cxx/
+*.keystore
+*.jks
