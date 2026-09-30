@@ -1,6 +1,6 @@
 # TeleRec for Android: project plan
 
-Status: plan only, no Android code yet. Written 28 September 2026.
+Status: phases 1–5 implemented on 29 September 2026 (untested on real phones). Written 28 September 2026.
 
 Goal: an Android phone app that does what the iOS app does (video with full-quality zoom steps, photo
 mode with free zoom), driven by the **same, unchanged watch app**. The watch doesn't know or care which
@@ -180,7 +180,23 @@ The camera work (phases 3–5) takes most of the time, and it grows with every p
   Google Play alongside the App Store.
 - The watch app needs no new Store listing: one Connect IQ app serves both phones.
 
-## Open decisions
+## Decisions (29 September 2026)
+
+1. Package name: `com.nlmthai.telerec`.
+2. Minimum Android version: Android 11 (API 30). Target and compile SDK 35.
+3. Target phones: Pixel 8 Pro, 9 Pro, 9 Pro XL, 10 Pro and 10 Pro XL; Galaxy S23, S24 and S25 Ultra (`SupportedPhones`). Other phones get the main lens only in video.
+4. Phones without direct lens access: main lens only. There are no approximate zoom steps.
+5. Background recording: keep recording with the screen off (foreground service).
+6. Gallery folders: `Movies/TeleRec` and `Pictures/TeleRec` (default, not asked).
+7. Crop steps: none on Android for now (PLAN "Full-quality crop steps": not reliably detectable).
+
+Still to do on real phones: run **Lens info** on each supported model and record the results here. Check that
+physical telephoto streams configure at 4K. Check that recording survives the screen turning off. Verify the
+tethered simulator steps. Set the Connect IQ Store id so "Open Connect IQ Store" can be added (the SDK's
+`openStore` needs the store id, not the UUID). Known gap: on the Galaxy Ultras only the longer telephoto is
+offered, because `Lens` has a single telephoto case, as on iOS.
+
+## Open decisions (original list, now settled above)
 
 Per the project convention, these are for the user to settle before building:
 
